@@ -37,9 +37,22 @@ class PasswordMissingSpecial(PasswordMissingCharacter):
     def __init__(self):
         what_missing = "Special"
         super().__init__(what_missing)
-    
+ 
+"""
+    Checks if the given username is valid.
+
+    Parameters:
+    username (str): The username to be checked.
+
+    Raises:
+    UsernameContainsIllegalCharacter: If the username contains an illegal character.
+    UsernameTooShort: If the username is too short (less than 3 characters).
+    UsernameTooLong: If the username is too long (more than 16 characters).
+
+    Returns:
+    bool: Returns True if the username is valid, otherwise raises an exception.
+"""   
 def check_username(username):
-    
     for indx, c in enumerate(username):
         if not (c.isalpha() or c.isnumeric() or c == "_"):
             raise UsernameContainsIllegalCharacter(indx)
@@ -50,6 +63,23 @@ def check_username(username):
         raise UsernameTooLong()
     return True
 
+"""
+    Checks if the given password is valid.
+
+    Parameters:
+    password (str): The password to be checked.
+
+    Raises:
+    PasswordTooShort: If the password is too short (less than 8 characters).
+    PasswordTooLong: If the password is too long (more than 40 characters).
+    PasswordMissingUpper: If the password is missing an uppercase letter.
+    PasswordMissingLower: If the password is missing a lowercase letter.
+    PasswordMissingNumber: If the password is missing a digit.
+    PasswordMissingSpecial: If the password is missing a special character.
+
+    Returns:
+    bool: Returns True if the password is valid, otherwise raises an exception.
+"""
 def check_password(password):
     if (len(password) < 8):
         raise PasswordTooShort()
