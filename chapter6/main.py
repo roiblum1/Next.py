@@ -45,7 +45,7 @@ second = (
 
 img = Image.open('chapter6/ex6p4.jpg')
 draw = ImageDraw.Draw(img)
-draw.line(first, fill='black', width=2)
-draw.line(second, fill='black', width=2)
+draw.line(first, fill='black', width=3)
+draw.line(second, fill='black', width=3)
 img.save('result_ex6p4.png')
 img.show()
